@@ -21,10 +21,35 @@ const forecast = (long, lat, callback) => {
           body.current.temperature +
           " degrees outside. It feels like " +
           body.current.feelslike +
-          " degrees outside."
+          " degrees outside. There is currenly a windspeed of " +
+          body.current.wind_speed + 
+          "mph travelling in a " +
+          windDir[body.current.wind_dir] + 
+          " direction." 
+          
       );
     }
   });
 };
+
+
+const windDir = {
+  N: 'northerly',
+  NNE: 'north northeasterly',
+  NE: 'north easterly',
+  ENE: 'east northeasterly',
+  E: 'easterly',
+  ESE: 'east southeasterly',
+  SE: 'south easterly',
+  SSE: 'south southeasterly',
+  S: 'southerly',
+  SSW: 'south southwesterly',
+  SW: 'south westerly',
+  WSW: 'west southwesterly',
+  W: 'westerly',
+  WNW: 'west northwesterly',
+  NW: 'northwesterly',
+  NNW: 'north northwesterly',
+}
 
 module.exports = forecast;
